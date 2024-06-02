@@ -17,12 +17,12 @@ setup(
     long_description=LONG_DESCRIPTION,
     license = "BSD",
     # The project's main homepage.
-    url='',
+    url='https://github.com/gautamkhanapuri/patternlib.git',
     author='Gautam AK',
     author_email='gautamajey@gmail.com',
     classifiers=[
-        "Development Status :: 1 - Beta",
-        'Topic :: Software Development :: Libraries :: Python Print Patterms',
+        "Development Status :: 3 - Alpha",
+        'Topic :: Software Development :: Libraries :: Application Frameworks',
         'Topic :: Software Development :: Libraries :: Python Modules',
         "License :: OSI Approved :: BSD License",
     ],
