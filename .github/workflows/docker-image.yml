@@ -1,0 +1,27 @@
+name: Docker Image and PyPI CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image and push to PyPI
+      run: |
+         bash build_docker.sh
+         docker login --username gautamkhanapuri --password $DOCKER
+         ver=`cat code/patternlib/__init__.py  |  grep 'VERSION =' | sed -e "s/VERSION = //" -e 's/"//g'`
+         docker push gautamkhanapuri/patternlib:${ver}
+         twine upload dist/* -u $PYPIUSER -p $PYPIPSWD
+      env:
+         DOCKER: ${{ secrets.DOCKERKEY }}
+         PYPIUSER: ${{ secrets.PYPIUSER }}
+         PYPIPSWD: ${{ secrets.PYPIPSWD }}
