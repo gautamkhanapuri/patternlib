@@ -20,7 +20,17 @@ jobs:
          docker login --username gautamkhanapuri --password $DOCKER
          ver=`cat code/patternlib/__init__.py  |  grep 'VERSION =' | sed -e "s/VERSION = //" -e 's/"//g'`
          docker push gautamkhanapuri/patternlib:${ver}
+         cd code
+         export PYTHONPATH=`pwd`
+         cd ..
+         python3 -m venv pypienv
+         source pypienv/bin/activate
+         ver=`cat code/patternlib/__init__.py  |  grep 'VERSION =' | sed -e "s/VERSION = //" -e 's/"//g'`
+         pip install -U pip setuptools wheel twine
+         python3 setup.py bdist_wheel sdist
          twine upload dist/* -u $PYPIUSER -p $PYPIPSWD
+         deactivate 
+         /bin/rm -rf build dist pypienv code/patternlib.egg-info code/__pycache__
       env:
          DOCKER: ${{ secrets.DOCKERKEY }}
          PYPIUSER: ${{ secrets.PYPIUSER }}
