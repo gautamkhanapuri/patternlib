@@ -2,7 +2,7 @@
 
 # Pattern library constants and exports.
 
-VERSION = "1.1.2"
+VERSION = "1.1.4"
 
 # ALPHABETS
 from patternlib.alphabets.l_pattern import l_pattern
@@ -87,81 +87,106 @@ from patternlib.shapes.miscellaneous.sigma import sigma
 
 
 __all__ = [
- # ALPHABETS
- "l_pattern",
- "e_pattern",
- "h_pattern",
- "i_pattern",
- "t_pattern",
- "f_pattern",
- "a_pattern",
- "v_pattern",
- "x_pattern",
- "z_pattern",
+    # ALPHABETS
+    "l_pattern",
+    "e_pattern",
+    "h_pattern",
+    "i_pattern",
+    "t_pattern",
+    "f_pattern",
+    "a_pattern",
+    "v_pattern",
+    "x_pattern",
+    "z_pattern",
 
- # SHAPES
- # Triangles
- "right_angle_triangle_pattern",
- "same_number_as_row_right_angle_triangle",
- "custom_string_right_angle_triangle",
- "string_triangle_pointing_right",
- "right_angle_triangle_inverted_across_hplane",
- "right_angle_triangle_inverted_across_h_and_v_plane",
- "right_angle_triangle_inverted_across_vplane",
- "triangle_pointing_right",
- "triangle_pointing_right_double_center_row",
- "triangle_pointing_left",
- "triangle_pointing_left_double_center_row",
- "isosceles_triangle_pointing_up",
- "narrow_isosceles_triangle_pointing_up",
- "isosceles_triangle_pointing_down",
- "narrow_string_isosceles_triangle_pointing_up",
- "wide_string_isosceles_triangle_pointing_up",
- "narrow_string_isosceles_triangle_pointing_down",
- "number_increasing_along_row_right_angle_triangle",
- "number_increasing_along_column_right_angle_triangle",
- "number_increasing_along_column_right_angle_triangle_inverted_across_hplane",
- "number_increasing_along_column_right_angle_triangle_inverted_across_h_and_v_plane",
- "number_increasing_along_column_right_angle_triangle_inverted_across_vplane",
- "number_increasing_along_column_isosceles_triangle_pointing_up",
- "inverted_same_number_as_row_right_angle_triangle",
- "decreasing_number_triangle",
- "numbers_indicating_column_num_inverted",
- "string_right_angle_triangle",
- "string_right_angle_triangle_inverted_across_hplane",
- "string_right_angle_triangle_inverted_across_vplane",
- "string_right_angle_triangle_inverted_across_h_and_v_plane",
- # Hour glass
- "horizontal_hour_glass",
- "horizontal_hour_glass_common_midpoint",
- "hour_glass",
- "string_hour_glass",
- "hollow_hour_glass",
- # Diamond
- "wide_diamond",
- "narrow_diamond",
- "narrow_string_diamond",
- "wide_string_diamond",
- "hollow_diamond",
- # Pyramid
- "pyramid_pointing_up",
- "pyramid_pointing_down",
- "hollow_pyramid_pointing_up",
- "hollow_pyramid_pointing_down",
- "increasing_number_pyramid_pointing_up",
- "increasing_number_pyramid_pointing_down",
- "string_pyramid_pointing_up",
- "string_pyramid_pointing_down",
- "decreasing_number_pyramid_pointing_up",
- "decreasing_number_pyramid_pointing_down",
- # Miscellaneous
- "inverted_number_7",
- "inverted_sigma",
- "inverted_z",
- "number_7",
- "pyramid_diamond",
- "pyramid_hour_glass",
- "sigma"
+    # SHAPES
+    # Triangles
+    "right_angle_triangle_pattern",
+    "same_number_as_row_right_angle_triangle",
+    "custom_string_right_angle_triangle",
+    "string_triangle_pointing_right",
+    "right_angle_triangle_inverted_across_hplane",
+    "right_angle_triangle_inverted_across_h_and_v_plane",
+    "right_angle_triangle_inverted_across_vplane",
+    "triangle_pointing_right",
+    "triangle_pointing_right_double_center_row",
+    "triangle_pointing_left",
+    "triangle_pointing_left_double_center_row",
+    "isosceles_triangle_pointing_up",
+    "narrow_isosceles_triangle_pointing_up",
+    "isosceles_triangle_pointing_down",
+    "narrow_string_isosceles_triangle_pointing_up",
+    "wide_string_isosceles_triangle_pointing_up",
+    "narrow_string_isosceles_triangle_pointing_down",
+    "number_increasing_along_row_right_angle_triangle",
+    "number_increasing_along_column_right_angle_triangle",
+    "number_increasing_along_column_right_angle_triangle_inverted_across_hplane",
+    "number_increasing_along_column_right_angle_triangle_inverted_across_h_and_v_plane",
+    "number_increasing_along_column_right_angle_triangle_inverted_across_vplane",
+    "number_increasing_along_column_isosceles_triangle_pointing_up",
+    "inverted_same_number_as_row_right_angle_triangle",
+    "decreasing_number_triangle",
+    "numbers_indicating_column_num_inverted",
+    "string_right_angle_triangle",
+    "string_right_angle_triangle_inverted_across_hplane",
+    "string_right_angle_triangle_inverted_across_vplane",
+    "string_right_angle_triangle_inverted_across_h_and_v_plane",
+    # Hour glass
+    "horizontal_hour_glass",
+    "horizontal_hour_glass_common_midpoint",
+    "hour_glass",
+    "string_hour_glass",
+    "hollow_hour_glass",
+    # Diamond
+    "wide_diamond",
+    "narrow_diamond",
+    "narrow_string_diamond",
+    "wide_string_diamond",
+    "hollow_diamond",
+    # Pyramid
+    "pyramid_pointing_up",
+    "pyramid_pointing_down",
+    "hollow_pyramid_pointing_up",
+    "hollow_pyramid_pointing_down",
+    "increasing_number_pyramid_pointing_up",
+    "increasing_number_pyramid_pointing_down",
+    "string_pyramid_pointing_up",
+    "string_pyramid_pointing_down",
+    "decreasing_number_pyramid_pointing_up",
+    "decreasing_number_pyramid_pointing_down",
+    # Miscellaneous
+    "inverted_number_7",
+    "inverted_sigma",
+    "inverted_z",
+    "number_7",
+    "pyramid_diamond",
+    "pyramid_hour_glass",
+    "sigma",
+    "is_input_str"
 ]
+
+str_patterns = [
+    "narrow_string_isosceles_triangle_pointing_up",
+    "custom_string_right_angle_triangle",
+    "string_triangle_pointing_right",
+    "narrow_string_isosceles_triangle_pointing_up",
+    "wide_string_isosceles_triangle_pointing_up",
+    "narrow_string_isosceles_triangle_pointing_down",
+    "string_right_angle_triangle",
+    "string_right_angle_triangle_inverted_across_hplane",
+    "string_right_angle_triangle_inverted_across_vplane",
+    "string_right_angle_triangle_inverted_across_vplane",
+    "string_right_angle_triangle_inverted_across_h_and_v_plane",
+    "string_hour_glass",
+    "narrow_string_diamond",
+    "wide_string_diamond",
+    "string_pyramid_pointing_up",
+    "string_pyramid_pointing_down",
+]
+
+def is_input_str(name):
+    if name and name in str_patterns:
+        return True
+    return False
 
 

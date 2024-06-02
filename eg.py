@@ -12,7 +12,7 @@ p.add_argument("-l", "--list", help="Prints the entire list of patterns availabl
                action="store_true")
 p.add_argument("-s", "--show", help="Displays the details of the pattern you have passed as argument")
 p.add_argument("-r", "--run", help="Runs the argument you have passed with default parameters.")
-p.add_argument("-p", "--param", help="Sets the size of the pattern", default=5, type=int)
+p.add_argument("-p", "--param", help="Sets the size of the pattern")
 args = p.parse_args()
 if args.list:
     for pattern_name in pattern_list:
@@ -30,7 +30,19 @@ elif args.run:
     if args.run in pattern_list:
         pattern_function = getattr(pattern_lib_obj, args.run)
         if hasattr(pattern_function, '__call__'):
-            pattern_function(args.param)
+            if pattern_lib_obj.is_input_str(args.run):
+                if args.param:
+                    pattern_function(args.param)
+                else:
+                    pattern_function()
+            else:
+                try:
+                    value = int(args.param)
+                    pattern_function(value)
+                except:
+                    print("Incorrect input type for the pattern.")
+                    pattern_function()
+
             print('*' * 50)
     else:
         print(f"Error: Cannot run unknown pattern - '{args.run}'")
