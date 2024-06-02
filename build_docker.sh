@@ -5,7 +5,7 @@ cd ..
 python3 -m venv patternenv
 source patternenv/bin/activate
 ver=`cat code/patternlib/__init__.py  |  grep 'VERSION =' | sed -e "s/VERSION = //" -e 's/"//g'`
-pip install -U pip setuptools wheel
+pip install -U pip setuptools wheel twine
 python3 setup.py bdist_wheel sdist
 docker build -t ${username}/patternlib:${ver} --build-arg APP_VERSION=${ver} .
 docker run --rm --name pattern ${username}/patternlib:${ver}
