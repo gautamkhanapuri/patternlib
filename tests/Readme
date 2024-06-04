@@ -1,0 +1,37 @@
+CLONEDIR=/Users/ajeybk/projects/prancer/gak/patternlib
+cd $CLONEDIR
+export PYTHONPATH=$CLONEDIR/code:$CLONEDIR/tests
+echo $PYTHONPATH
+python3 -m venv utenv
+source utenv/bin/activate
+pip install -U pip
+pip install nose2
+cd tests
+nose2 -v
+deactivate
+/bin/rm -rf utenv
+
+# Updates to CI/CD pipeline
+export PYTHONPATH=$CLONEDIR/code:$CLONEDIR/tests
+echo $PYTHONPATH
+python3 -m venv utenv
+source utenv/bin/activate
+pip install -U pip
+pip install nose2
+cd tests
+nose2 -v
+if [[ $? -eq 0 ]]; then
+  echo "Unit Tests passed, release to PyPI and Docker"
+  deactivate
+  cd ..
+  /bin/rm -rf utenv
+  # all the code that is required to implement CI
+  exit 0
+else
+  echo "Unit Tests failed, fix and run the pipeline"
+  deactivate
+  cd ..
+  /bin/rm -rf utenv
+  exit 1
+fi
+
