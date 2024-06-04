@@ -1,3 +1,4 @@
+[![Docker Image and PyPI CI](https://github.com/gautamkhanapuri/patternlib/actions/workflows/docker-image.yml/badge.svg?branch=main)](https://github.com/gautamkhanapuri/patternlib/actions/workflows/docker-image.yml)
 # Patternlib
 **Patternlib** is a python library of visual patterns such as hour glass, triangles, pyramids, alphabets and many more. It is a simple to use library to help understand some basic concepts of looping and conditional statements.
 
