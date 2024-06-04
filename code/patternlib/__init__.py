@@ -2,7 +2,7 @@
 
 # Pattern library constants and exports.
 
-VERSION = "1.1.4"
+VERSION = "1.1.5"
 
 # ALPHABETS
 from patternlib.alphabets.l_pattern import l_pattern

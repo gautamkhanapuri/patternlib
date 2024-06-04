@@ -37,8 +37,11 @@ elif args.run:
                     pattern_function()
             else:
                 try:
-                    value = int(args.param)
-                    pattern_function(value)
+                    if args.param:
+                        value = int(args.param)
+                        pattern_function(value)
+                    else:
+                        pattern_function()
                 except:
                     print("Incorrect input type for the pattern.")
                     pattern_function()
