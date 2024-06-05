@@ -5,8 +5,10 @@ import importlib
 import inspect
 
 pattern_lib_obj = importlib.import_module("patternlib")
-pattern_list = [i for i in dir(pattern_lib_obj) if not i.startswith("__") and
-                hasattr(getattr(pattern_lib_obj, i), '__call__')]
+exclusion_list = [i for i in dir(pattern_lib_obj) if ((i.startswith("__")) or (not hasattr(getattr(pattern_lib_obj, i), "__call__")) or (i in ["is_input_str"]))]
+pattern_list = [i for i in dir(pattern_lib_obj) if i not in exclusion_list]
+# pattern_list = [i for i in dir(pattern_lib_obj) if not i.startswith("__") and
+#                 hasattr(getattr(pattern_lib_obj, i), '__call__')]
 p = argparse.ArgumentParser(description="Helps to understand the working of patternlib")
 p.add_argument("-l", "--list", help="Prints the entire list of patterns available in patternlib",
                action="store_true")
