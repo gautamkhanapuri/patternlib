@@ -28,7 +28,7 @@ jobs:
            echo "Unit tests passed. Release to PyPI and Docker."
            pip install patternlib
            onlineversion=`pip list | grep patternlib | cut -d ' ' -f2`
-           infileversion=`cat code/patternlib/__init__.py  |  grep 'VERSION =' | sed -e "s/VERSION = //" -e 's/"//g'`
+           infileversion=`cat ../code/patternlib/__init__.py  |  grep 'VERSION =' | sed -e "s/VERSION = //" -e 's/"//g'`
            if [ "$onlineversion" != "$infileversion" ]; then
              deactivate
              cd ..
